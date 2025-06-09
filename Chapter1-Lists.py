@@ -26,11 +26,10 @@ def button_function():
 
 
 def list_length():
-    print(len(aList))
+    label2['text'] = len(aList)
 
 def delete_tool():
    aList.pop()
-   print(aList)
    label['text'] = aList
 
 def slicer():
@@ -60,7 +59,10 @@ frame.pack()
 
 #entry
 entry = ttk.Entry(master=frame)
-entry.pack(pady=5)
+label2 = ttk.Label(master=frame)
+entry.pack()
+label2.pack()
+
 
 #button frame
 button_frame = ttk.Frame(master=frame)
@@ -81,7 +83,7 @@ button3.pack(side='left', padx=3)
 slice_frame = ttk.Frame(master=frame)
 n_entry = ttk.Entry(master=slice_frame)
 m_entry = ttk.Entry(master=slice_frame)
-button4 = ttk.Button(master=slice_frame, text='Button 4', command=slicer)
+button4 = ttk.Button(master=slice_frame, text='Slicer', command=slicer)
 n_entry.pack(side='left', padx=3)
 m_entry.pack(side='left', padx=3)
 button4.pack(side='left', padx=3)
