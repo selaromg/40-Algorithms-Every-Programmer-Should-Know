@@ -3,9 +3,9 @@ import ttkbootstrap as ttk
 
 class buttony:
     def __init__(self, master, text, command):
-        self.master = window
-        self.text = 'test'
-        self.command = None
+        self.master = master
+        self.text = text
+        self.command = command
 # TODO : setters and getters
     def set_master(self):
         self.master = master_entry
@@ -70,6 +70,7 @@ window = ttk.Window(themename= 'darkly', title='Test with Lists')
 
 b = buttony(window, 'test', list_range)
 
+
 #new frame
 frame = ttk.Frame(master=window)
 label = ttk.Label(master=frame)
@@ -127,10 +128,14 @@ text_entry.pack(side='left')
 command_entry.pack(side='left')
 class_master.pack()
 
-
+b2 = buttony(class_master, 'BAHHUMBUG', button_function)
 
 buttontest = ttk.Button(master=b.master, text=b.text, command=b.set_master)
 buttontest.pack(pady=3)
+
+
+buttontest2 = ttk.Button(master=b2.master, text=b2.text, command=b2.command)
+buttontest2.pack(side='left')
 
 #run
 window.mainloop()
