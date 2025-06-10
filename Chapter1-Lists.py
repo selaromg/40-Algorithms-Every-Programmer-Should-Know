@@ -1,6 +1,16 @@
 import tkinter as tk
 import ttkbootstrap as ttk
 
+class buttony:
+    def __init__(self, master, text, command):
+        self.master = window
+        self.text = 'test'
+        self.command = None
+# TODO : setters and getters
+    def set_master(self):
+        self.master = master_entry
+
+
 aList = []
 
 def button_function():
@@ -46,10 +56,19 @@ def slicer():
       n = int(n)
       m = int(m)
       label['text'] = aList[n:m]
+
+def list_range():
+   # TODO: create function
+   x_entry = int(x_entry.get())
+   aList = range(0, x_entry)
+   label['text'] = aList
+
    
 
 #window
-window = ttk.Window(title='Test with Lists')
+window = ttk.Window(themename= 'darkly', title='Test with Lists')
+
+b = buttony(window, 'test', list_range)
 
 #new frame
 frame = ttk.Frame(master=window)
@@ -69,7 +88,7 @@ button_frame = ttk.Frame(master=frame)
 button_frame.pack(pady=5)
 
 #buttons
-button = ttk.Button(master=button_frame, text='Add and Display', command=button_function)
+button = ttk.Button(master=button_frame, text='Add and Display', style='w.tbutton', command=button_function)
 button.pack(side='left', padx=3)
 
 button2 = ttk.Button(master=button_frame, text='Length', command=list_length)
@@ -88,6 +107,30 @@ n_entry.pack(side='left', padx=3)
 m_entry.pack(side='left', padx=3)
 button4.pack(side='left', padx=3)
 slice_frame.pack(pady=3)
+
+# TODO: finish list frame
+#list frame
+list_frame = ttk.Frame(master=frame)
+x_entry = ttk.Entry(master=list_frame)
+button5 = ttk.Button(master=list_frame, text='List Filter', command=list_range)
+x_entry.pack(side='left', padx=3)
+button5.pack(side='left', padx=3)
+list_frame.pack(pady=3)
+
+
+class_master = ttk.Frame(master=frame)
+master_entry = ttk.Entry(master=class_master)
+text_entry = ttk.Entry(master=class_master)
+command_entry = ttk.Entry(master=class_master)
+master_entry.pack(side='left')
+text_entry.pack(side='left')
+command_entry.pack(side='left')
+class_master.pack()
+
+
+
+buttontest = ttk.Button(master=b.master, text=b.text, command=b.set_master)
+buttontest.pack(pady=3)
 
 #run
 window.mainloop()
