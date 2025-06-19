@@ -3,13 +3,24 @@ import ttkbootstrap as ttk
 
 class buttony:
     def __init__(self, master, text, command):
-        self.master = master
-        self.text = text
-        self.command = command
+        self._master = master
+        self._text = text
+        self._command = command
 # TODO : setters and getters
+
+    def get_master(self):
+       return self.__master
+    def get_text(self):
+       return self.__text
+    def get_command(self):
+       return self.__command
     def set_master(self):
         self.master = master_entry
 
+    def use_button_function(self):
+        aList.append(entry.get())
+        print(aList)
+        label['text'] = aList
 
 aList = []
 
@@ -18,10 +29,10 @@ def button_function():
     aList.append(entry.get())
     print(aList)
 
-    if (label['text'] == aList):
-        label['text'] = 'test'
-    else:
-     label['text'] = aList
+    # if (label['text'] == aList):
+    #     label['text'] = 'test'
+    # else:
+    label['text'] = aList
 
     # List is the main data structure used to store a mutable (changeable) sequence of elements -- elements do not need to be of the same type
     # One-dimensional writable data structure
@@ -62,6 +73,11 @@ def list_range():
    x_entry = int(x_entry.get())
    aList = range(0, x_entry)
    label['text'] = aList
+
+
+def search():
+   aList.sort
+   
 
    
 
@@ -130,12 +146,14 @@ class_master.pack()
 
 b2 = buttony(class_master, 'BAHHUMBUG', button_function)
 
-buttontest = ttk.Button(master=b.master, text=b.text, command=b.set_master)
+print(b2._master, b2.get_text, b2.get_command)
+
+buttontest = ttk.Button(master=b._master, text=b._text, command=b._command)
 buttontest.pack(pady=3)
 
 
-buttontest2 = ttk.Button(master=b2.master, text=b2.text, command=b2.command)
+buttontest2 = ttk.Button(master=(b2._master), text=b2._text, command=b2._command)
 buttontest2.pack(side='left')
-
+print(b2._master)
 #run
 window.mainloop()
